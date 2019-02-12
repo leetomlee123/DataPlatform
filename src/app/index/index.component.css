@@ -1,0 +1,6 @@
+ :host ::ng-deep .logo {
+   height: 32px;
+   background: rgba(252, 250, 250, 0.877);
+   margin: 16px;
+ }
+

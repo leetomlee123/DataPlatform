@@ -1,0 +1,56 @@
+<nz-layout>
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzCollapsedWidth]="0" [nzBreakpoint]="'lg'">
+    <div class="logo"><img src="../../assets/images/logo.png" style="width: 168px;height: 32px;"></div>
+    <ul nz-menu [nzTheme]="'dark'" [nzMode]="isCollapsed?'vertical':'inline'">
+      <!-- <li nz-menu-item routerLink="/index"><span class="nav-text">Dashboard</span></li> -->
+      <li nz-menu-item routerLink="/index/miui"><span class="nav-text">米柚</span></li>
+      <li nz-menu-item routerLink="/index/movie"><span class="nav-text">电影</span></li>
+      <!-- <li nz-menu-item routerLink="/index/music"><span class="nav-text">音乐</span></li> -->
+      <li nz-menu-item routerLink="/index/video"><span class="nav-text">视频</span></li>
+      <!-- <li nz-menu-item [routerLink]="['/index/chat']"><span class="nav-text">聊天</span></li> -->
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header style="background: #fff; padding:0;" class="header">
+      <div nz-row nzType="flex">
+        <div nz-col nzSpan="22"></div>
+        <div nz-col nzSpan="1">
+          <nz-modal [(nzVisible)]="isVisible" nzTitle="个人中心" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
+            [nzOkLoading]="isOkLoading">
+            <div nz-row>
+              <div nz-col nzSpan="20" nzOffset="2">
+                <nz-card style="width:400px;" [nzCover]="coverTemplate" [nzActions]="[actionSetting,actionEdit,actionEllipsis]">
+                  <nz-card-meta nzTitle="user" nzDescription="This is the description" [nzAvatar]="avatarTemplate"></nz-card-meta>
+                </nz-card>
+                <ng-template #avatarTemplate>
+                  <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+                </ng-template>
+                <ng-template #coverTemplate>
+                  <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
+                </ng-template>
+                <ng-template #actionSetting>
+                  <mat-icon>settings
+                  </mat-icon>
+                </ng-template>
+                <ng-template #actionEdit>
+                  <mat-icon>edit
+                  </mat-icon>
+                </ng-template>
+                <ng-template #actionEllipsis>
+                  
+                <mat-icon>more_horiz
+                </mat-icon>
+                </ng-template>
+              </div>
+            </div>
+          </nz-modal>
+          <nz-avatar (click)="showModal()" nzIcon="anticon anticon-user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+        </div>
+      </div>
+    </nz-header>
+    <nz-content style="margin:24px 16px 0;">
+      <router-outlet></router-outlet>
+    </nz-content>
+    <nz-footer style="text-align: center;">Free DataPlatform ©2018 Copyright</nz-footer>
+  </nz-layout>
+</nz-layout>

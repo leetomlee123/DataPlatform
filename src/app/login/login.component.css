@@ -1,0 +1,20 @@
+    .login-form {
+      max-width: 300px;
+    }
+
+    .login-form-forgot {
+      float: right;
+    }
+
+    .login-form-button {
+      width: 100%;
+    }
+    .login_head_bg{
+          background: #5682a3;
+    height: 226px;
+    }
+    .main_login{
+          margin: -131px auto 90px;
+    max-width: 404px;
+    z-index:10;
+      }

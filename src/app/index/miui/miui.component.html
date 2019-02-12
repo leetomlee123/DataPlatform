@@ -1,0 +1,20 @@
+<nz-list [nzDataSource]="items" [nzItemLayout]="'vertical'" [nzRenderItem]="item" [nzPagination]="pagination">
+  <ng-template #item let-item>
+    <nz-list-item [nzContent]="item.content" [nzActions]="[viewAction,msgAction,starAction]" [nzExtra]="extra">
+      <ng-template #viewAction><i class="anticon anticon-eye" style="margin-right: 6px;"></i> {{item.viewNums}}</ng-template>
+      <ng-template #msgAction><i class="anticon anticon-message" style="margin-right: 6px;"></i> {{item.replies}}</ng-template>
+      <ng-template #starAction><i class="anticon anticon-star" style="margin-right: 6px;"></i> {{item.favorit}}</ng-template>
+      <nz-list-item-meta [nzAvatar]="item.avatar" [nzTitle]="nzTitle" [nzDescription]="item.description">
+        <ng-template #nzTitle><a href="{{item.href}}">{{item.title}}({{item.groupx}})</a></ng-template>
+      </nz-list-item-meta>
+      <ng-template #extra>
+        <img width="272" alt="logo" src="{{item.imageFilePath}}">
+      </ng-template>
+
+    </nz-list-item>
+  </ng-template>
+  <ng-template #pagination>
+    <nz-pagination [(nzPageIndex)]="current" [(nzPageSize)]="size" [nzTotal]="pages" (nzPageSizeChange)="refresh()"
+      [nzHideOnSinglePage]="true" (nzPageIndexChange)="go()" nzShowQuickJumper nzShowSizeChanger></nz-pagination>
+  </ng-template>
+</nz-list>

@@ -1,0 +1,19 @@
+[nz-carousel-content] {
+      text-align: center;
+      height: 300px;
+      line-height: 300px;
+      background: #364d79;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    h3 {
+      color: #fff;
+    }
+    div{
+      float: left;
+    }
+    .poster{
+      width: 135px;
+      height: 191px;
+    }

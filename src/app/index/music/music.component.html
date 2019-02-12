@@ -1,0 +1,13 @@
+<div class="container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()"
+  [scrollWindow]="true">
+  <div nz-row nzType="flex">
+    <div nz-col nzSpan="4" *ngFor="let order of items;index as i">
+      <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
+        <nz-card-meta nzTitle="{{order.title}}" nzDescription="导演: {{order.director}}"></nz-card-meta>
+      </nz-card>
+      <ng-template #coverTemplate>
+        <img style="width:240px" alt="example" [src]="order.coverUrl" />
+      </ng-template>
+    </div>
+  </div>
+</div>

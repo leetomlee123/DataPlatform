@@ -1,0 +1,15 @@
+<div class="container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()"
+    [scrollWindow]="true">
+    <div nz-row nzType="flex">
+        <div nz-col [nzXXl]=4 [nzSm]=24 *ngFor="let order of items;index as i">
+            <nz-card nzHoverable [nzCover]="coverTemplate">
+                <nz-card-meta nzTitle="{{order.title}}" nzDescription="导演: {{order.director}}"></nz-card-meta>
+            </nz-card>
+            <ng-template #coverTemplate>
+                <a [href]="order.url"><img class="poster" [src]="order.coverUrl" /></a>
+            </ng-template>
+        </div>
+    </div>
+</div>
+docker run -it --name teamcity-server-instance -v ~/datadir:/data/teamcity_server/datadir -v ~/logs:/opt/teamcity/logs -p 8111:8111 jetbrains/teamcity-server
+docker run -it -e SERVER_URL="192.168.81.129" -v ~/:/data/teamcity_agent/conf jetbrains/teamcity-agent
